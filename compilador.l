@@ -119,5 +119,69 @@ end { simbolo = simb_end;
           return IDENT;
         }
 
+label { simbolo = simb_label;
+        strncpy (token, yytext, TAM_TOKEN);
+        IMPRIME("label ");
+        return LABEL;
+ }
 
+type { simbolo = simb_type;
+       strncpy (token, yytext, TAM_TOKEN);
+       IMPRIME("type ");
+       return TYPE;
+ }
+
+array { simbolo = simb_array;
+        strncpy (token, yytext, TAM_TOKEN);
+        IMPRIME("array ");
+        return ARRAY;
+ }
+
+procedure { simbolo = simb_procedure;
+            strncpy (token, yytext, TAM_TOKEN);
+            IMPRIME("procedure ");
+            return PROCEDURE;
+ }
+
+function { simbolo = simb_function;
+           strncpy (token, yytext, TAM_TOKEN);
+           IMPRIME("function ");
+           return FUNCTION;
+ }
+
+goto { simbolo = simb_goto;
+       strncpy (token, yytext, TAM_TOKEN);
+       IMPRIME("goto ");
+       return GOTO;
+ }
+
+if { simbolo = simb_if;
+     strncpy (token, yytext, TAM_TOKEN);
+     IMPRIME("if ");
+     return IF;
+ }
+
+then { simbolo = simb_then;
+       strncpy (token, yytext, TAM_TOKEN);
+       IMPRIME("then ");
+       return THEN;
+ }
+
+else { simbolo = simb_else;
+       strncpy (token, yytext, TAM_TOKEN);
+       IMPRIME("else ");
+       return ELSE;
+ }
+
+while { simbolo = simb_while;
+        strncpy (token, yytext, TAM_TOKEN);
+        IMPRIME("while ");
+        return WHILE;
+ }
+
+do { simbolo = simb_do;
+     strncpy (token, yytext, TAM_TOKEN);
+     IMPRIME("do ");
+     return DO;
+ }
 %%
