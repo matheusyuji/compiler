@@ -113,12 +113,6 @@ end { simbolo = simb_end;
           return FECHA_PARENTESES;
  }
 
-{ident} { simbolo = simb_identificador;
-          strncpy (token, yytext, TAM_TOKEN);
-          IMPRIME(" ident  ");
-          return IDENT;
-        }
-
 label { simbolo = simb_label;
         strncpy (token, yytext, TAM_TOKEN);
         IMPRIME("label ");
@@ -135,6 +129,12 @@ array { simbolo = simb_array;
         strncpy (token, yytext, TAM_TOKEN);
         IMPRIME("array ");
         return ARRAY;
+ }
+
+of { simbolo = simb_of;
+     strncpy (token, yytext, TAM_TOKEN);
+     IMPRIME("of ");
+     return OF;
  }
 
 procedure { simbolo = simb_procedure;
@@ -184,4 +184,96 @@ do { simbolo = simb_do;
      IMPRIME("do ");
      return DO;
  }
+
+\+ { simbolo = simb_mais;
+     strncpy (token, yytext, TAM_TOKEN);
+     IMPRIME("mais ");
+     return MAIS;
+ }
+
+\- { simbolo = simb_menos;
+     strncpy (token, yytext, TAM_TOKEN);
+     IMPRIME("menos ");
+     return MENOS;
+ }
+
+\= { simbolo = simb_igual;
+     strncpy (token, yytext, TAM_TOKEN);
+     IMPRIME("igual ");
+     return IGUAL;
+ }
+
+\* { simbolo = simb_vezes;
+     strncpy (token, yytext, TAM_TOKEN);
+     IMPRIME("vezes ");
+     return VEZES;
+ }
+
+\/ { simbolo = simb_divisao;
+     strncpy (token, yytext, TAM_TOKEN);
+     IMPRIME("divisao ");
+     return DIVISAO;
+ }
+
+div { simbolo = simb_div;
+      strncpy (token, yytext, TAM_TOKEN);
+      IMPRIME("div ");
+      return DIV;
+ }
+
+and { simbolo = simb_and;
+      strncpy (token, yytext, TAM_TOKEN);
+      IMPRIME("and ");
+      return AND;
+ }
+
+or { simbolo = simb_or;
+     strncpy (token, yytext, TAM_TOKEN);
+     IMPRIME("or ");
+     return OR;
+ }
+
+not { simbolo = simb_not;
+      strncpy (token, yytext, TAM_TOKEN);
+      IMPRIME("not ");
+      return NOT;
+ }
+
+\> { simbolo = simb_maior;
+     strncpy (token, yytext, TAM_TOKEN);
+     IMPRIME("maior ");
+     return MAIOR;
+ }
+
+\>= { simbolo = simb_maior_igual;
+      strncpy (token, yytext, TAM_TOKEN);
+      IMPRIME("maior_igual ");
+      return MAIOR_IGUAL;
+ }
+
+\< { simbolo = simb_menor;
+     strncpy (token, yytext, TAM_TOKEN);
+     IMPRIME("menor ");
+     return MENOR;
+ }
+
+\<= { simbolo = simb_menor_igual;
+      strncpy (token, yytext, TAM_TOKEN);
+      IMPRIME("menor_igual ");
+      return MENOR_IGUAL;
+ }
+
+\<> { simbolo = simb_diferente;
+      strncpy (token, yytext, TAM_TOKEN);
+      IMPRIME("diferente ");
+      return DIFERENTE;
+ }
+
+{ident} { simbolo = simb_identificador;
+          strncpy (token, yytext, TAM_TOKEN);
+          IMPRIME(" ident  ");
+          return IDENT;
+        }
+
+
 %%
